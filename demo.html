@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food World | Delicious Food</title>
+</head>
+
+<body>
+
+    <header>
+        <center>
+            <h1 style="color: red;">🍔 FOOD WORLD 🍕</h1>
+            <h3>Good Food, Good Mood!</h3>
+            <p>Discover delicious food and enjoy every bite.</p>
+
+            <nav>
+                <a href="#home">Home</a> |
+                <a href="#menu">Food Menu</a> |
+                <a href="#gallery">Gallery</a> |
+                <a href="#order">Order Food</a> |
+                <a href="#contact">Contact</a>
+            </nav>
+        </center>
+        <hr>
+    </header>
+
+    <main>
+
+        <section id="home">
+            <center>
+                <h2>Welcome to Food World ❤️</h2>
+                <p>
+                    From crispy burgers to delicious pizza and sweet desserts,
+                    we bring your favourite flavours together!
+                </p>
+
+                <img
+                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700"
+                    alt="Delicious cheeseburger"
+                    width="350"
+                    height="250">
+
+                <h3>Fresh Food, Amazing Taste!</h3>
+                <p>Explore our menu and discover your next favourite meal.</p>
+            </center>
+        </section>
+
+        <hr>
+
+        <section id="menu">
+            <center>
+                <h2>🍽️ Our Special Food Menu</h2>
+                <p>Explore our delicious food collection.</p>
+            </center>
+
+            <table border="1" cellpadding="10" width="100%">
+                <tr>
+                    <th>Food Image</th>
+                    <th>Food Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=250"
+                             alt="Cheeseburger" width="150">
+                    </td>
+                    <td>Cheese Burger</td>
+                    <td>Juicy burger with cheese and fresh vegetables.</td>
+                    <td>₹120</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=250"
+                             alt="Fresh pizza" width="150">
+                    </td>
+                    <td>Italian Pizza</td>
+                    <td>Hot pizza topped with cheese and vegetables.</td>
+                    <td>₹199</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=250"
+                             alt="Noodles" width="150">
+                    </td>
+                    <td>Spicy Noodles</td>
+                    <td>Delicious noodles with vegetables and spices.</td>
+                    <td>₹100</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=250"
+                             alt="Ice cream dessert" width="150">
+                    </td>
+                    <td>Ice Cream</td>
+                    <td>A creamy and refreshing sweet treat.</td>
+                    <td>₹60</td>
+                </tr>
+            </table>
+        </section>
+
+        <hr>
+
+        <section id="gallery">
+            <center>
+                <h2>📸 Delicious Food Gallery</h2>
+                <p>Look at these mouth-watering dishes!</p>
+            </center>
+
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400"
+                 alt="Cheesy pizza" width="200">
+
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400"
+                 alt="Freshly baked pizza" width="200">
+
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400"
+                 alt="Grilled food" width="200">
+
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400"
+                 alt="Sweet donuts" width="200">
+        </section>
+
+        <hr>
+
+        <section>
+            <center>
+                <h2>🎬 Watch Delicious Food Being Prepared</h2>
+                <p>Enjoy the cooking video!</p>
+
+                <!-- Original cooking video -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/HPS63YZS-Jg?si=o27ggaja7hbNrRT0&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen ></iframe>
+            </center>
+        </section>
+
+        <hr>
+
+        <section id="order">
+            <center>
+                <h2>📝 Place Your Food Order</h2>
+                <p>Fill out the form to select your favourite meal.</p>
+            </center>
+
+            <form action="#" method="get">
+
+                <label for="name">Full Name:</label><br>
+                <input type="text" id="name" name="name"
+                       placeholder="Enter your name" required>
+                <br><br>
+
+                <label for="email">Email Address:</label><br>
+                <input type="email" id="email" name="email"
+                       placeholder="Enter your email" required>
+                <br><br>
+
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone"
+                       placeholder="Enter your phone number"
+                       pattern="[0-9]{10}" required>
+                <br><br>
+
+                <label for="food">Choose Your Food:</label><br>
+                <select id="food" name="food" required>
+                    <option value="">-- Select Food --</option>
+                    <option value="burger">Cheese Burger</option>
+                    <option value="pizza">Italian Pizza</option>
+                    <option value="noodles">Spicy Noodles</option>
+                    <option value="icecream">Ice Cream</option>
+                </select>
+                <br><br>
+
+                <label for="quantity">Quantity:</label><br>
+                <input type="number" id="quantity" name="quantity"
+                       min="1" max="20" value="1" required>
+                <br><br>
+
+                <label for="address">Delivery Address:</label><br>
+                <textarea id="address" name="address"
+                          rows="4" cols="35"
+                          placeholder="Enter your delivery address"
+                          required></textarea>
+                <br><br>
+
+                <p>Select Payment Method:</p>
+
+                <input type="radio" id="cash" name="payment"
+                       value="cash" required>
+                <label for="cash">Cash on Delivery</label>
+                <br>
+
+                <input type="radio" id="online" name="payment"
+                       value="online">
+                <label for="online">Online Payment</label>
+                <br><br>
+
+                <input type="checkbox" id="confirm"
+                       name="confirm" required>
+                <label for="confirm">Confirm my order details</label>
+                <br><br>
+
+                <button type="submit">Place My Order</button>
+                <button type="reset">Clear Form</button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer id="contact">
+        <center>
+            <h2>❤️ Thank You for Visiting Food World!</h2>
+            <p>Eat Fresh, Stay Happy!</p>
+            <p>Contact: foodworld@example.com</p>
+            <p>&copy; 2026 Food World. All rights reserved.</p>
+        </center>
+    </footer>
+
+</body>
+</html>
