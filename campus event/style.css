@@ -518,7 +518,8 @@ section[id] {
 
 /* Footer */
 .footer {
-    position: static;
+    position:fixed;
+    bottom: 0;
     width: 100%;
     margin-top: 35px;
     padding: 20px;
