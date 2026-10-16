@@ -265,14 +265,14 @@ function checkScope() {
 checkScope();
 
 //Task 3: Hosting 
-console.log(a); // undefined
+console.log(e); // undefined
 // console.log(b); // ReferenceError
 
-var a = 10;
-let b = 20;
+var e = 10;
+let d= 20;
 
-console.log(a); // 10
-console.log(b); // 20
+console.log(e); // 10
+console.log(d); // 20
 
 // Task 4: clourse
 function makeCounter() {
