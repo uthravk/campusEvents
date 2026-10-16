@@ -237,5 +237,55 @@ const user2 = {
 console.log(user1.address?.city ?? "City not available");
 console.log(user2.address?.city ?? "City not available");
 
+// scope, hosting , tdz, clouse
 
+//Task 1: global scope 
+let campusName = "SA Engineering College";
 
+function displayCampus() {
+    console.log(campusName);
+}
+
+displayCampus();
+
+//Task 2:
+function checkScope() {
+    if (true) {
+        let a = 10;
+        var b = 20;
+
+        console.log("Inside block, a:", a);
+        console.log("Inside block, b:", b);
+    }
+
+    // console.log(a); // ReferenceError: a is not defined
+    console.log("Outside block, b:", b);
+}
+
+checkScope();
+
+//Task 3: Hosting 
+console.log(a); // undefined
+// console.log(b); // ReferenceError
+
+var a = 10;
+let b = 20;
+
+console.log(a); // 10
+console.log(b); // 20
+
+// Task 4: clourse
+function makeCounter() {
+    let count = 0;
+
+    return function () {
+        count++;
+        return count;
+    };
+}
+
+const counter = makeCounter();
+
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
