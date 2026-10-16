@@ -145,3 +145,97 @@ console.log(total); // 90
 
 /*  explain which methods are used to change the oringal array 
   filter, map, reduse */
+
+/*Array and objects */
+
+//Task 1: Create a book object and update its price
+
+const book = {
+    title: "JavaScript Basics",
+    author: "John",
+    price: 500
+};
+
+console.log(book);
+
+book.price = 600;
+
+console.log("Updated price:", book.price);
+
+// Task 2: Create a nested user object and print the city
+ const user = {
+    name: "Uthra",
+    age: 21,
+    address: {
+        city: "Chennai",
+        state: "Tamil Nadu"
+    }
+};
+
+console.log(user.address.city);
+
+// Task 3: Create an array of three product objects and print each product name
+const products = [
+    { name: "Laptop", price: 50000 },
+    { name: "Mouse", price: 500 },
+    { name: "Keyboard", price: 1200 }
+];
+
+products.forEach(product => {
+    console.log(product.name);
+});
+// Task 4: Use destructuring to extract two properties
+const student = {
+    name: "Uthra",
+    course: "Computer Science",
+    mark: 90
+};
+
+const { name, course } = student;
+
+console.log(name);
+console.log(course);
+
+// Task 5: spread  
+
+const arr1 = [10, 20, 30];
+const arr2 = [40, 50, 60];
+const copy = [...arr1];
+const combined = [...arr1, ...arr2];
+
+console.log("Original:", arr1);
+console.log("Copy:", copy);
+console.log("Combined:", combined);
+
+// Task 6: Rest parameters
+function addNumbers(...numbers) {
+    let total = 0;
+
+    for (let num of numbers) {
+        total += num;
+    }
+
+    return total;
+}
+
+console.log(addNumbers(10, 20));
+console.log(addNumbers(10, 20, 30, 40));
+console.log(addNumbers(1, 2, 3, 4, 5));
+
+// Task 7: Use optional chaining and ?? for a missing city
+const user1 = {
+    name: "Uthra",
+    address: {
+        city: "Chennai"
+    }
+};
+
+const user2 = {
+    name: "Priya"
+};
+
+console.log(user1.address?.city ?? "City not available");
+console.log(user2.address?.city ?? "City not available");
+
+
+
