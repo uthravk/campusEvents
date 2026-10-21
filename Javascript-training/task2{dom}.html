@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice - Campus Events</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        .event-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .highlight {
+            background-color: lightyellow;
+            border: 2px solid orange;
+        }
+
+        button {
+            padding: 7px 12px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Task 1: Change heading text -->
+    <h1 id="heading">Campus Events</h1>
+
+    <!-- Task 2: Highlight event cards -->
+    <div class="event-card ">
+        <h3>Sports Day</h3>
+        <p>Date: 25 October</p>
+    </div>
+
+    <div class="event-card ">
+        <h3>Cultural Fest</h3>
+        <p>Date: 30 October</p>
+    </div>
+
+    <!-- Task 3: Read input and display name -->
+    <h2>Enter Your Name</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button id="submitBtn">Submit</button>
+    <p id="output"></p>
+
+    <!-- Task 4: Add generated event cards -->
+    <h2>Add an Event</h2>
+    <div id="event-list"></div>
+
+    <script>
+        // Task 1: Select heading by ID and change its text
+        const heading = document.getElementById("heading");
+        heading.textContent = "Upcoming Campus Events";
+
+
+        // Task 2: Select all event cards and add highlight class
+        const cards = document.querySelectorAll(".event-card");
+
+        cards.forEach(card => {
+            card.classList.add("highlight");
+        });
+
+
+        // Task 3: Read name using value and display using textContent
+        const nameInput = document.getElementById("nameInput");
+        const submitBtn = document.getElementById("submitBtn");
+        const output = document.getElementById("output");
+
+        submitBtn.addEventListener("click", () => {
+            const name = nameInput.value.trim();
+
+            if (name === "") {
+                output.textContent = "Please enter your name.";
+            } else {
+                output.textContent = "Hello, " + name + "!";
+            }
+        });
+
+
+        // Task 4: Create a card from an object and append it to event-list
+        const event = {
+            title: "Hackathon",
+            date: "5 November"
+        };
+
+        const eventList = document.getElementById("event-list");
+
+        function createEventCard(event) {
+            const card = document.createElement("div");
+            card.classList.add("event-card", "highlight");
+
+            const title = document.createElement("h3");
+            title.textContent = event.title;
+
+            const date = document.createElement("p");
+            date.textContent = "Date: " + event.date;
+
+            card.append(title, date);
+
+            // Challenge: Add a Remove button to each generated card
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
+
+            removeBtn.addEventListener("click", () => {
+                card.remove();
+            });
+
+            card.appendChild(removeBtn);
+            eventList.appendChild(card);
+        }
+
+        createEventCard(event);
+    </script>
+
+</body>
+</html>

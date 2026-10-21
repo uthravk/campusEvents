@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events and Forms</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #f5f7fb;
+        }
+
+        section, .event-card {
+            background: white;
+            padding: 18px;
+            margin: 16px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        input {
+            display: block;
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 9px 15px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        .error { color: red; }
+        .success { color: green; }
+
+        #event-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Module 12: Events and Forms</h1>
+
+    <!-- Task 1 -->
+    <section>
+        <h2>Task 1: Button Event</h2>
+        <button id="statusBtn">Click Me</button>
+        <p id="status">Waiting for your click...</p>
+    </section>
+
+    <!-- Task 2 -->
+    <section>
+        <h2>Task 2: Character Counter</h2>
+        <input type="text" id="message" placeholder="Type something">
+        <p>Characters: <span id="count">0</span></p>
+    </section>
+
+    <!-- Tasks 3 and 4 -->
+    <section>
+        <h2>Registration Form</h2>
+
+        <form id="registrationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email">
+            <button type="submit">Register</button>
+        </form>
+
+        <p id="feedback"></p>
+    </section>
+
+    <!-- Challenge -->
+    <section>
+        <h2>Campus Events</h2>
+        <div id="event-cards"></div>
+        <p id="joinStatus"></p>
+    </section>
+
+    <!-- Connect the JavaScript file -->
+    <script src="Events%20and%20Forms.js"></script>
+</body>
+</html>
