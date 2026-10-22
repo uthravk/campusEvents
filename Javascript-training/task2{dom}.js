@@ -21,7 +21,6 @@ submitBtn.addEventListener("click", () => {
     output.textContent = nameInput.value;
 });
 
-
 /* Task 4: Create a card from an object */
 const event = {
     title: "Hackathon",
