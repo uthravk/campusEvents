@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 15 - Web Storage</title>
+</head>
+<body>
+
+    <h1>Module 15: Web Storage</h1>
+
+    <h2>Task 1: Favourite Colour</h2>
+    <p id="colour"></p>
+
+    <h2>Task 2: Session Step Number</h2>
+    <p id="step"></p>
+
+    <h2>Task 3: Book Titles</h2>
+    <ul id="books"></ul>
+
+    <h2>Task 4: Storage Comparison</h2>
+    <p id="comparison"></p>
+
+    <script>
+        // Task 1: Save and read favourite colour using localStorage
+        localStorage.setItem("favouriteColour", "Blue");
+
+        const colour = localStorage.getItem("favouriteColour");
+        document.getElementById("colour").textContent =
+            "Favourite Colour: " + colour;
+
+
+        // Task 2: Increase step number on every page load or refresh
+        let stepNumber = Number(sessionStorage.getItem("stepNumber")) || 0;
+
+        stepNumber++;
+
+        sessionStorage.setItem("stepNumber", stepNumber);
+
+        document.getElementById("step").textContent =
+            "Current Step: " + stepNumber;
+
+
+        // Task 3: Store three book titles as an array
+        const bookTitles = [
+            "JavaScript Basics",
+            "HTML Guide",
+            "CSS Essentials"
+        ];
+
+        localStorage.setItem("books", JSON.stringify(bookTitles));
+
+        const savedBooks = JSON.parse(localStorage.getItem("books"));
+        const bookList = document.getElementById("books");
+
+        savedBooks.forEach(function (book) {
+            const li = document.createElement("li");
+            li.textContent = book;
+            bookList.appendChild(li);
+        });
+
+
+        // Task 4: Compare localStorage and sessionStorage
+        document.getElementById("comparison").textContent =
+            "localStorage: " + localStorage.getItem("favouriteColour") +
+            " | sessionStorage step: " +
+            sessionStorage.getItem("stepNumber");
+    </script>
+
+</body>
+</html>

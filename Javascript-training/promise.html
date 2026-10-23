@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promise Example</title>
+</head>
+<body>
+    <h1>Student List</h1>
+
+    <button id="loadBtn">Load Names</button>
+
+    <p id="message"></p>
+    <ul id="nameList"></ul>
+
+    <script>
+        const button = document.getElementById("loadBtn");
+        const message = document.getElementById("message");
+        const nameList = document.getElementById("nameList");
+
+        function loadNames() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(["uthra", "sathish", "anu", "raghul", ]);
+                }, 2000);
+            });
+        }
+
+        button.addEventListener("click", () => {
+            message.textContent = "Loading...";
+            nameList.innerHTML = "";
+
+            loadNames().then((names) => {
+                message.textContent = "Names loaded successfully!";
+
+                names.forEach((name) => {
+                    const li = document.createElement("li");
+                    li.textContent = name;
+                    nameList.appendChild(li);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

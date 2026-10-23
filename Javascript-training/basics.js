@@ -289,3 +289,12 @@ const counter = makeCounter();
 console.log(counter()); // 1
 console.log(counter()); // 2
 console.log(counter()); // 3
+
+// save an array using json
+const fruits = ["apple", "banana", "cherry"];
+
+// 1. Convert the array to a JSON string
+const jsonString = JSON.stringify(fruits);
+
+// 2. Save it to localStorage
+localStorage.setItem("myFruits", jsonString);
