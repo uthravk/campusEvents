@@ -1,122 +1,105 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import EventCard from "./components/EventCard";
+import EventList from "./components/EventList";
+import Footer from "./components/Footer";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const initialEvents = [
+  {
+    id: 1,
+    name: "Campus Tech Fest 2026",
+    category: "TECH",
+    description:
+      "Explore technology, discover new ideas, and connect with fellow students.",
+    date: "November 5, 2026",
+    venue: "Main Auditorium"
+  },
+  {
+    id: 2,
+    name: "Cultural Day",
+    category: "CULTURE",
+    description:
+      "Celebrate music, dance, art, and cultures from across campus.",
+    date: "November 10, 2026",
+    venue: "Open Air Theatre"
+  },
+  {
+    id: 3,
+    name: "React Workshop",
+    category: "WORKSHOP",
+    description:
+      "Learn React components, props, and interactive interfaces.",
+    date: "November 15, 2026",
+    venue: "Computer Lab 2"
+  }
+];
+
+export default function App() {
+  const [events, setEvents] = useState(initialEvents);
+
+  function handleRemove(eventId) {
+    setEvents(previousEvents =>
+      previousEvents.filter(event => event.id !== eventId)
+    );
+  }
+
+  function handleAddEvent() {
+    const newEvent = {
+      id: Date.now(),
+      name: "New Campus Event",
+      category: "GENERAL",
+      description: "A new event has been added to campus.",
+      date: "November 20, 2026",
+      venue: "Seminar Hall"
+    };
+
+    setEvents(previousEvents => [
+      ...previousEvents,
+      newEvent
+    ]);
+  }
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
+      <Navbar />
+
+      <main id="home">
+        <section className="hero">
+          <p className="eyebrow">YOUR CAMPUS. YOUR COMMUNITY.</p>
+
+          <h1>
+            Make Your Campus
+            <br />
+            <span>Experience Count.</span>
+          </h1>
+
           <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+            Discover exciting events, meet new people,
+            and make the most of your college life.
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
+          <a href="#events" className="hero-button">
+            Explore Events
+          </a>
+        </section>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <section className="events-section">
+          <button
+            className="add-button"
+            onClick={handleAddEvent}
+          >
+            + Add Sample Event
+          </button>
+        </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+        <EventList
+          events={events}
+          onRemove={handleRemove}
+        />
+      </main>
+
+      <Footer />
     </>
-  )
+  );
 }
-
-export default App
