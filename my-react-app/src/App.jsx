@@ -1,105 +1,106 @@
-import { useState } from "react";
-import Navbar from "./components/Navbar";
-import EventCard from "./components/EventCard";
-import EventList from "./components/EventList";
-import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import { FavoritesProvider } from "./context/FavoritesContext";
+import EventDetailsPage from "./pages/EventDetails/EventDetailsPage";
+import EventsPage from "./pages/Events/EventsPage";
+import HomePage from "./pages/Home/HomePage";
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import RegisterPage from "./pages/Register/RegisterPage";
 import "./App.css";
-
-const initialEvents = [
-  {
-    id: 1,
-    name: "Campus Tech Fest 2026",
-    category: "TECH",
-    description:
-      "Explore technology, discover new ideas, and connect with fellow students.",
-    date: "November 5, 2026",
-    venue: "Main Auditorium"
-  },
-  {
-    id: 2,
-    name: "Cultural Day",
-    category: "CULTURE",
-    description:
-      "Celebrate music, dance, art, and cultures from across campus.",
-    date: "November 10, 2026",
-    venue: "Open Air Theatre"
-  },
-  {
-    id: 3,
-    name: "React Workshop",
-    category: "WORKSHOP",
-    description:
-      "Learn React components, props, and interactive interfaces.",
-    date: "November 15, 2026",
-    venue: "Computer Lab 2"
-  }
-];
+import {
+  getEvents,
+  createEvent,
+  deleteEvent
+} from "./services/eventService";
 
 export default function App() {
-  const [events, setEvents] = useState(initialEvents);
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
 
-  function handleRemove(eventId) {
+  // Fetch events from JSON Server when the app mounts.
+  useEffect(() => {
+    async function loadEvents() {
+      try {
+        const data = await getEvents();
+        setEvents(data);
+        setLoadError("");
+      } catch (error) {
+        console.error("Failed to load events:", error);
+        setLoadError(
+          "Could not load events. Please check whether JSON Server is running."
+        );
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadEvents();
+  }, []);
+
+  // Remove an event from the displayed list.
+  async function handleRemove(eventId) {
+    await deleteEvent(eventId);
     setEvents(previousEvents =>
-      previousEvents.filter(event => event.id !== eventId)
+      previousEvents.filter(event => String(event.id) !== String(eventId))
     );
   }
 
-  function handleAddEvent() {
-    const newEvent = {
-      id: Date.now(),
-      name: "New Campus Event",
-      category: "GENERAL",
-      description: "A new event has been added to campus.",
-      date: "November 20, 2026",
-      venue: "Seminar Hall"
-    };
+  // Save a new event to JSON Server using POST.
+  async function handleCreateEvent(eventData) {
+    const savedEvent = await createEvent(eventData);
 
     setEvents(previousEvents => [
       ...previousEvents,
-      newEvent
+      savedEvent
     ]);
+
   }
 
   return (
-    <>
-      <Navbar />
-
-      <main id="home">
-        <section className="hero">
-          <p className="eyebrow">YOUR CAMPUS. YOUR COMMUNITY.</p>
-
-          <h1>
-            Make Your Campus
-            <br />
-            <span>Experience Count.</span>
-          </h1>
-
-          <p>
-            Discover exciting events, meet new people,
-            and make the most of your college life.
-          </p>
-
-          <a href="#events" className="hero-button">
-            Explore Events
-          </a>
-        </section>
-
-        <section className="events-section">
-          <button
-            className="add-button"
-            onClick={handleAddEvent}
-          >
-            + Add Sample Event
-          </button>
-        </section>
-
-        <EventList
-          events={events}
-          onRemove={handleRemove}
-        />
-      </main>
-
-      <Footer />
-    </>
+    <FavoritesProvider>
+      <BrowserRouter>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  events={events}
+                  loading={loading}
+                  error={loadError}
+                  onCreateEvent={handleCreateEvent}
+                  onRemove={handleRemove}
+                />
+              }
+            />
+            <Route
+              path="/events"
+              element={
+                <EventsPage
+                  events={events}
+                  loading={loading}
+                  error={loadError}
+                  onRemove={handleRemove}
+                />
+              }
+            />
+            <Route
+              path="/events/:eventId"
+              element={<EventDetailsPage events={events} loading={loading} />}
+            />
+            <Route
+              path="/register/:eventId"
+              element={<RegisterPage events={events} loading={loading} />}
+            />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </BrowserRouter>
+    </FavoritesProvider>
   );
 }

@@ -1,0 +1,28 @@
+{
+  "events": [
+    {
+      "id": "2",
+      "title": "Cultural Day",
+      "category": "CULTURE",
+      "description": "Celebrate music, dance, art, and cultures from across campus.",
+      "date": "2026-11-12",
+      "venue": "Open Air Stage"
+    },
+    {
+      "id": "3",
+      "title": "Sports Meet",
+      "category": "SPORTS",
+      "description": "Support your classmates and take part in campus sports activities.",
+      "date": "2026-11-20",
+      "venue": "College Ground"
+    },
+    {
+      "id": "4",
+      "title": "Web Design Session",
+      "category": "DESIGN",
+      "description": "Learn the basics of web design and create your first page layout.",
+      "date": "2026-11-25",
+      "venue": "Computer Lab"
+    }
+  ]
+}

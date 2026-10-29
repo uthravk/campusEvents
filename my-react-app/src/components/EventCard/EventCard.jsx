@@ -1,8 +1,21 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useFavorites } from "../../context/FavoritesContext";
 
 function EventCard({ event, onRemove }) {
   const [isRegistered, setIsRegistered] = useState(true);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [actionError, setActionError] = useState("");
+  const { favorites, toggleFavorite } = useFavorites();
+  const isFavorite = favorites.has(String(event.id));
+
+  async function handleRemove() {
+    setActionError("");
+    try {
+      await onRemove(event.id);
+    } catch (error) {
+      setActionError(error.message || "Could not remove the event.");
+    }
+  }
 
   return (
     <article className="event-card">
@@ -15,11 +28,12 @@ function EventCard({ event, onRemove }) {
           {event.category}
         </span>
 
-        <h2>{event.name}</h2>
+        <h2>{event.name ?? event.title}</h2>
         <p>{event.description}</p>
 
         <p><strong>Date:</strong> {event.date}</p>
         <p><strong>Venue:</strong> {event.venue}</p>
+        {actionError && <p className="form-error" role="alert">{actionError}</p>}
 
         <p>
           <strong>Registration:</strong>{" "}
@@ -40,16 +54,20 @@ function EventCard({ event, onRemove }) {
 
           <button
             className="btn-favorite"
-            onClick={() =>
-              setIsFavorite(previous => !previous)
-            }
+            onClick={() => toggleFavorite(event.id)}
           >
             {isFavorite ? "★ Favorited" : "☆ Add Favorite"}
           </button>
 
+          <Link className="btn-primary" to={`/events/${event.id}`}>
+            View Details
+          </Link>
+          <Link className="btn-primary" to={`/register/${event.id}`}>
+            Register
+          </Link>
           <button
             className="btn-remove"
-            onClick={() => onRemove(event.id)}
+            onClick={handleRemove}
           >
             Remove Event
           </button>
