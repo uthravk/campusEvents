@@ -17,12 +17,14 @@
       "venue": "College Ground"
     },
     {
-      "id": "4",
-      "title": "Web Design Session",
-      "category": "DESIGN",
-      "description": "Learn the basics of web design and create your first page layout.",
-      "date": "2026-11-25",
-      "venue": "Computer Lab"
+      "name": "workshop",
+      "category": "TECH",
+      "description": "fun event",
+      "date": "2026-09-09",
+      "venue": "cyber block",
+      "title": "workshop",
+      "id": "HqKqu9P"
     }
   ]
+
 }

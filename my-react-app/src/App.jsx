@@ -40,7 +40,7 @@ export default function App() {
     loadEvents();
   }, []);
 
-  // Remove an event from the displayed list.
+  // Remove an event from the displayed list. 
   async function handleRemove(eventId) {
     await deleteEvent(eventId);
     setEvents(previousEvents =>
@@ -53,7 +53,7 @@ export default function App() {
     const savedEvent = await createEvent(eventData);
 
     setEvents(previousEvents => [
-      ...previousEvents,
+      ...previousEvents, //spread
       savedEvent
     ]);
 
