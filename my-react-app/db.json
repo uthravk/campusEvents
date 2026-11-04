@@ -7,8 +7,8 @@
       "description": "Take part in campus sports activities and compete with classmates.",
       "date": "2026-11-20",
       "venue": "College Ground",
-      "fee": 0,
-      "isOpen": true
+      "fee": 69,
+      "isOpen": false
     },
     {
       "id": "3",
@@ -91,16 +91,6 @@
       "isOpen": true
     },
     {
-      "id": "13",
-      "name": "Photography and Poster Design",
-      "category": "DESIGN",
-      "description": "Create posters and visual content for campus events.",
-      "date": "2026-12-04",
-      "venue": "Design Studio",
-      "fee": 0,
-      "isOpen": true
-    },
-    {
       "id": "14",
       "name": "Career Guidance Seminar",
       "category": "GENERAL",
@@ -159,32 +149,9 @@
       "venue": "Computer Lab 3",
       "fee": 0,
       "isOpen": true
-    },
-    {
-      "name": "FOOTBALL MATCH",
-      "category": "SPORTS",
-      "date": "2026-11-27",
-      "venue": "CHEPAK STADIUM",
-      "description": "TESTING",
-      "fee": 10009,
-      "isOpen": true,
-      "id": "upn6w1j"
     }
   ],
   "students": [
-    {
-      "studentName": "Sathish Kumar N",
-      "email": "sathish.13022303@gmail.com",
-      "department": "CYBER SECURITY",
-      "yearOfStudy": 4,
-      "password": "12345678",
-      "attendanceType": "In person",
-      "eventId": "upn6w1j",
-      "accessibilitySupport": true,
-      "message": "",
-      "registeredAt": "2026-11-03T16:39:07.004Z",
-      "id": 1
-    },
     {
       "studentName": "Sathish Kumar N",
       "email": "sathish.13022303@gmail.com",
@@ -197,6 +164,32 @@
       "message": "",
       "registeredAt": "2026-11-04T03:44:07.735Z",
       "id": 2
+    },
+    {
+      "studentName": "Uthra vijiyakumar",
+      "email": "vijiyakumaruthra@gmail.com",
+      "department": "hgn",
+      "yearOfStudy": 1,
+      "password": "hngnj vhn gvn ",
+      "attendanceType": "In person",
+      "eventId": "2",
+      "accessibilitySupport": false,
+      "message": "",
+      "registeredAt": "2026-11-04T04:46:03.640Z",
+      "id": 3
+    },
+    {
+      "studentName": "Uthra vijiyakumar",
+      "email": "vijiyakumaruthra@gmail.com",
+      "department": "vccv",
+      "yearOfStudy": 5,
+      "password": "drfvdfdbddfdfg",
+      "attendanceType": "In person",
+      "eventId": "2",
+      "accessibilitySupport": false,
+      "message": "",
+      "registeredAt": "2026-11-04T04:48:03.703Z",
+      "id": 4
     }
   ]
 }
