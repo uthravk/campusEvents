@@ -1,0 +1,14 @@
+.cc-button {
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 700;
+}
+.cc-button.primary {
+  background: var(--purple);
+  color: white;
+}
+.cc-button.secondary {
+  background: #f0edff;
+  color: #4d3aa8;
+}

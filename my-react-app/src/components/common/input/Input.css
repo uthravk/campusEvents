@@ -1,0 +1,12 @@
+.cc-input {
+  display: grid;
+  gap: 7px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.cc-input input {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 12px;
+  background: white;
+}

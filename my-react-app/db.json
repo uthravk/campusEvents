@@ -2,29 +2,201 @@
   "events": [
     {
       "id": "2",
-      "title": "Cultural Day",
-      "category": "CULTURE",
-      "description": "Celebrate music, dance, art, and cultures from across campus.",
-      "date": "2026-11-12",
-      "venue": "Open Air Stage"
+      "name": "Sports Meet",
+      "category": "SPORTS",
+      "description": "Take part in campus sports activities and compete with classmates.",
+      "date": "2026-11-20",
+      "venue": "College Ground",
+      "fee": 0,
+      "isOpen": true
     },
     {
       "id": "3",
-      "title": "Sports Meet",
-      "category": "SPORTS",
-      "description": "Support your classmates and take part in campus sports activities.",
-      "date": "2026-11-20",
-      "venue": "College Ground"
+      "name": "Web Design Session",
+      "category": "DESIGN",
+      "description": "Learn the basics of web design and create your first page layout.",
+      "date": "2026-11-25",
+      "venue": "Computer Lab 1",
+      "fee": 0,
+      "isOpen": true
     },
     {
-      "name": "workshop",
+      "id": "4",
+      "name": "React Workshop",
       "category": "TECH",
-      "description": "fun event",
-      "date": "2026-09-09",
-      "venue": "cyber block",
-      "title": "workshop",
-      "id": "HqKqu9P"
+      "description": "Learn React components, props, hooks and state management.",
+      "date": "2026-11-05",
+      "venue": "Main Auditorium",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "6",
+      "name": "Python Programming Workshop",
+      "category": "WORKSHOP",
+      "description": "Practice Python programming through hands-on coding exercises.",
+      "date": "2026-11-10",
+      "venue": "Computer Lab 2",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "7",
+      "name": "Photography Competition",
+      "category": "CULTURE",
+      "description": "Capture creative campus moments and submit your best photographs.",
+      "date": "2026-11-14",
+      "venue": "Arts Block",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "8",
+      "name": "Football Tournament",
+      "category": "SPORTS",
+      "description": "Represent your department in the interdepartmental football tournament.",
+      "date": "2026-11-16",
+      "venue": "College Ground",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "9",
+      "name": "UI UX Design Workshop",
+      "category": "DESIGN",
+      "description": "Learn wireframing, prototyping and user-friendly interface design.",
+      "date": "2026-11-18",
+      "venue": "Design Studio",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "10",
+      "name": "Hackathon 2026",
+      "category": "TECH",
+      "description": "Build innovative software projects with a team in a coding challenge.",
+      "date": "2026-11-22",
+      "venue": "Innovation Lab",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "11",
+      "name": "Music and Dance Night",
+      "category": "CULTURE",
+      "description": "Enjoy live music, student performances and group dance competitions.",
+      "date": "2026-11-27",
+      "venue": "Open Air Stage",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "13",
+      "name": "Photography and Poster Design",
+      "category": "DESIGN",
+      "description": "Create posters and visual content for campus events.",
+      "date": "2026-12-04",
+      "venue": "Design Studio",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "14",
+      "name": "Career Guidance Seminar",
+      "category": "GENERAL",
+      "description": "Discover career opportunities, interview tips and professional skills.",
+      "date": "2026-12-06",
+      "venue": "Seminar Hall B",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "15",
+      "name": "Git and GitHub Workshop",
+      "category": "WORKSHOP",
+      "description": "Learn version control, repositories, branches and collaboration.",
+      "date": "2026-12-08",
+      "venue": "Computer Lab 1",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "16",
+      "name": "Cloud Computing Seminar",
+      "category": "TECH",
+      "description": "Understand cloud services, deployment and scalable applications.",
+      "date": "2026-12-10",
+      "venue": "Main Auditorium",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "17",
+      "name": "Chess Competition",
+      "category": "SPORTS",
+      "description": "Test your strategy and compete against fellow students in chess.",
+      "date": "2026-12-12",
+      "venue": "Library Conference Room",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "18",
+      "name": "Startup Idea Presentation",
+      "category": "GENERAL",
+      "description": "Present innovative business ideas and receive feedback from mentors.",
+      "date": "2026-12-15",
+      "venue": "Innovation Lab",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "id": "19",
+      "name": "JavaScript Fundamentals",
+      "category": "WORKSHOP",
+      "description": "Practice variables, functions, arrays, objects and modern JavaScript.",
+      "date": "2026-12-18",
+      "venue": "Computer Lab 3",
+      "fee": 0,
+      "isOpen": true
+    },
+    {
+      "name": "FOOTBALL MATCH",
+      "category": "SPORTS",
+      "date": "2026-11-27",
+      "venue": "CHEPAK STADIUM",
+      "description": "TESTING",
+      "fee": 10009,
+      "isOpen": true,
+      "id": "upn6w1j"
+    }
+  ],
+  "students": [
+    {
+      "studentName": "Sathish Kumar N",
+      "email": "sathish.13022303@gmail.com",
+      "department": "CYBER SECURITY",
+      "yearOfStudy": 4,
+      "password": "12345678",
+      "attendanceType": "In person",
+      "eventId": "upn6w1j",
+      "accessibilitySupport": true,
+      "message": "",
+      "registeredAt": "2026-11-03T16:39:07.004Z",
+      "id": 1
+    },
+    {
+      "studentName": "Sathish Kumar N",
+      "email": "sathish.13022303@gmail.com",
+      "department": "sk@gmail.com",
+      "yearOfStudy": 4,
+      "password": "12345678",
+      "attendanceType": "In person",
+      "eventId": "19",
+      "accessibilitySupport": false,
+      "message": "",
+      "registeredAt": "2026-11-04T03:44:07.735Z",
+      "id": 2
     }
   ]
-
 }

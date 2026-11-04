@@ -1,0 +1,22 @@
+.popup-backdrop {
+  position: fixed;
+  inset: 0;
+  background: #17132880;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  padding: 20px;
+}
+.popup {
+  width: min(440px, 100%);
+  padding: 28px;
+}
+.popup p {
+  color: var(--muted);
+}
+.popup > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}

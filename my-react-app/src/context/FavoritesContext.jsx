@@ -1,40 +1,63 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const FavoritesContext = createContext(null);
+const STORAGE_KEY = "campusconnect-favorite-event-ids";
+
+function readFavoriteIds() {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(saved)
+      ? [
+          ...new Set(
+            saved
+              .filter((id) => ["string", "number"].includes(typeof id))
+              .map(String),
+          ),
+        ]
+      : [];
+  } catch {
+    return [];
+  }
+}
 
 export function FavoritesProvider({ children }) {
-  const [favorites, setFavorites] = useState(() => new Set());
+  const [favorites, setFavorites] = useState(readFavoriteIds);
 
-  function toggleFavorite(eventId) {
-    const id = String(eventId);
-    setFavorites(previous => {
-      const next = new Set(previous);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
-  }
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
+    } catch {
+      // Favorites remain available for this session when storage is unavailable.
+    }
+  }, [favorites]);
 
-  const value = useMemo(
-    () => ({ favorites, toggleFavorite }),
-    [favorites]
-  );
+  const toggleFavorite = (eventOrId) => {
+    const eventId = String(
+      typeof eventOrId === "object" ? eventOrId.id : eventOrId,
+    );
+    setFavorites((ids) =>
+      ids.includes(eventId)
+        ? ids.filter((id) => id !== eventId)
+        : [...ids, eventId],
+    );
+  };
+  const removeFavorite = (eventOrId) => {
+    const eventId = String(
+      typeof eventOrId === "object" ? eventOrId.id : eventOrId,
+    );
+    setFavorites((ids) => ids.filter((id) => id !== eventId));
+  };
+  const isFavorite = (id) => favorites.includes(String(id));
 
   return (
-    <FavoritesContext.Provider value={value}>
+    <FavoritesContext.Provider
+      value={{ favorites, toggleFavorite, removeFavorite, isFavorite }}
+    >
       {children}
     </FavoritesContext.Provider>
   );
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useFavorites() {
-  const context = useContext(FavoritesContext);
-  if (!context) {
-    throw new Error("useFavorites must be used within a FavoritesProvider.");
-  }
-  return context;
+  return useContext(FavoritesContext);
 }

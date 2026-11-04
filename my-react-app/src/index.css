@@ -1,50 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap");
 :root {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #1e293b;
-  background: #f8fafc;
+  font-family: "DM Sans", sans-serif;
+  color: #25213b;
+  background: #f7f5fc;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --purple: #6c4de6;
+  --ink: #24203a;
+  --muted: #77738a;
+  --line: #e8e4f1;
+  --surface: #fff;
 }
-
 * {
   box-sizing: border-box;
 }
-
-html {
-  min-width: 320px;
-  scroll-behavior: smooth;
-}
-
 body {
-  min-width: 320px;
-  min-height: 100vh;
   margin: 0;
+  min-width: 320px;
 }
-
 button,
 input,
 select,
 textarea {
   font: inherit;
 }
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
 a {
   color: inherit;
+  text-decoration: none;
 }
-
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+button {
+  cursor: pointer;
 }
-
-main {
-  flex: 1;
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #b9aaff;
+  outline-offset: 2px;
+}
+h1,
+h2,
+h3 {
+  font-family: Manrope, sans-serif;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-top: 0;
+}
+p {
+  line-height: 1.65;
+}
+.page-shell {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0 76px;
+  min-height: 62vh;
+}
+.eyebrow {
+  color: var(--purple);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.primary-button,
+.secondary-button,
+.danger-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.primary-button {
+  color: #fff;
+  background: var(--purple);
+}
+.primary-button:hover {
+  background: #5838ce;
+}
+.secondary-button {
+  color: #4d3aa8;
+  background: #f0edff;
+}
+.danger-button {
+  color: #b33e58;
+  background: #fff0f2;
+}
+.surface {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px #34245b0a;
+}
+@media (max-width: 600px) {
+  .page-shell {
+    width: min(100% - 32px, 1120px);
+    padding: 38px 0 54px;
+  }
 }

@@ -1,0 +1,114 @@
+.navbar {
+  min-height: 76px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 max(calc((100vw - 1120px) / 2), 24px);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.brand {
+  font: 800 1.15rem Manrope;
+  color: #392d68;
+  white-space: nowrap;
+}
+.navbar nav {
+  display: flex;
+  gap: 28px;
+  margin-left: auto;
+}
+.navbar nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 76px;
+  padding: 0 3px;
+  font-size: 0.94rem;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+}
+.navbar nav a.active,
+.navbar nav a:hover {
+  color: var(--purple);
+  font-weight: 700;
+}
+.navbar nav a.active {
+  border-bottom-color: var(--purple);
+}
+.favorite-nav-link {
+  gap: 8px;
+}
+.favorite-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--purple);
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 0.82rem;
+}
+.favorite-count svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (max-width: 600px) {
+  .navbar {
+    height: auto;
+    min-height: 68px;
+    padding: 14px 16px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-size: 1rem;
+  }
+  .navbar nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 2px 0 0;
+  }
+  .navbar nav a {
+    min-height: 40px;
+  }
+  .favorite-count {
+    margin-left: auto;
+    font-size: 0.9rem;
+  }
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+.brand svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.favorite-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.favorite-count svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
